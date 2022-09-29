@@ -5,7 +5,11 @@ const app = express();
 const mongoose = require('mongoose')
 require("dotenv").config()
 
-app.use(express.json());
+const multer = require("multer");
+const { AppConfig } = require('aws-sdk');
+
+app.use(multer().any())
+
 
 mongoose.connect(process.env.MONGO_URL || "mongodb+srv://matheenahamad:9TNGWEhzUB0Ttemi@matheen.vtdepfw.mongodb.net/group57Database", {
     useNewUrlParser: true
